@@ -3,7 +3,7 @@ import Sidebar from "./Sidebar";
 import MainContainer from "./MainContainer";
 const Body = () => {
   return (
-    <div>
+    <div className="pl-36">
     
       <MainContainer />
     </div>
