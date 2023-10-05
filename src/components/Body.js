@@ -3,8 +3,8 @@ import Sidebar from "./Sidebar";
 import MainContainer from "./MainContainer";
 const Body = () => {
   return (
-    <div className="pl-36">
-    
+    <div className="flex">
+      <Sidebar />
       <MainContainer />
     </div>
   );
