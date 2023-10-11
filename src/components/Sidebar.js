@@ -4,7 +4,7 @@ const Sidebar = () => {
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
 
   return !isMenuOpen ? (
-    <div className="md:w-1/12">
+    <div className="md:w-1/12 md:bg-fixed">
       <ul className="md:p-5 ">
         <li className="flex flex-wrap bg-gray-100 rounded-lg">
           <img
@@ -45,7 +45,7 @@ const Sidebar = () => {
     </div>
   ) : (
     <>
-      <div className="md:w-[300px] shadow-lg z-50 bg-white">
+      <div className="md:w-[300px] shadow-lg bg-white md:bg-fixed">
         <ul className="md:p-5 border-b-2">
           <li className="flex md:gap-5 md:text-lg md:font-semibold bg-gray-100 rounded-lg md:p-3">
             <img
