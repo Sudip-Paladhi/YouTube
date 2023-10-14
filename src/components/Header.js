@@ -1,6 +1,24 @@
+import { useEffect, useState } from "react";
 import { toogleMenu } from "../utils/AppSlice";
 import { useDispatch } from "react-redux";
+import { YOUTUBE_SEARCH_API } from "../utils/contants";
 const Header = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    const timer = setTimeout(() => getSearchSuggestion(), 200);
+
+    return (() => {
+      clearTimeout(timer);
+    });
+  }, [searchQuery]);
+
+  const getSearchSuggestion = async () => {
+const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+const json = await data.json();
+console.log(json);
+  }
+
   const dispatch = useDispatch();
 
   const toogleMenuHandler =() => {
@@ -30,6 +48,8 @@ onClick={() => toogleMenuHandler()}
       <div className="flex md:mt-2 md:h-12 md:w-8/12 md:justify-center">
         <input
           type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search"
           className="md:w-2/3 border border-gray-400 rounded-l-full md:pl-4 text-xl text-gray-600"
         />
