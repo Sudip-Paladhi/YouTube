@@ -1,14 +1,23 @@
 import { useEffect, useState } from "react";
-import { toogleMenu } from "../utils/AppSlice";
-import { useDispatch } from "react-redux";
+import { toogleMenu } from "../utils/appSlice";
+import { useDispatch, useSelector } from "react-redux";
 import { YOUTUBE_SEARCH_API } from "../utils/contants";
+import { cachResults } from "../utils/searchSlice";
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [suggestion, setSuggestion] = useState([]);
   const [showSuggestion, setShowSuggestion] = useState(false);
-
+  const dispatch = useDispatch();
+  const searchCache = useSelector((store) => store.search);
   useEffect(() => {
-    const timer = setTimeout(() => getSearchSuggestion(), 200);
+    // const timer = setTimeout(() => getSearchSuggestion(), 200);
+    const timer = setTimeout(() => {
+      if (searchCache[searchQuery]) {
+        setSuggestion(searchCache[searchQuery]);
+      } else {
+        getSearchSuggestion();
+      }
+    }, 200);
 
     return () => {
       clearTimeout(timer);
@@ -18,11 +27,13 @@ const Header = () => {
   const getSearchSuggestion = async () => {
     const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
     const json = await data.json();
-    console.log(json);
     setSuggestion(json[1]);
+    dispatch(
+      cachResults({
+        [searchQuery]: json[1],
+      })
+    );
   };
-
-  const dispatch = useDispatch();
 
   const toogleMenuHandler = () => {
     dispatch(toogleMenu());
@@ -67,15 +78,17 @@ const Header = () => {
               />
             </button>
           </div>
-          { showSuggestion && (<div>
-            <ul className=" bg-white md:shadow-lg">
-              {suggestion.map((input) => (
-                <li key={input} className="md:ml-5">
-                  🔍 {input}
-                </li>
-              ))}
-            </ul>
-          </div>)}
+          {showSuggestion && (
+            <div>
+              <ul className=" bg-white md:shadow-lg">
+                {suggestion.map((input) => (
+                  <li key={input} className="md:ml-5">
+                    🔍 {input}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
         <div className="md:w-2/12 md:mt-4">
           <img

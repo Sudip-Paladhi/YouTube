@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { closeMenu } from "../utils/AppSlice";
+import { closeMenu } from "../utils/appSlice";
 import { useSearchParams } from "react-router-dom";
+import CommentsPage from "./CommentsPage";
 
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
@@ -11,6 +12,7 @@ const WatchPage = () => {
     dispatch(closeMenu());
   }, []);
   return (
+    <div className="flex-row">
     <div className="md:rounded-lg md:px-5 ">
       <iframe
         width="770"
@@ -21,6 +23,11 @@ const WatchPage = () => {
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
       ></iframe>
+    </div>
+    <div className="md:p-4">
+    <CommentsPage />
+    </div>
+    
     </div>
   );
 };
