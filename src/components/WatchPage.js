@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { closeMenu } from "../utils/appSlice";
 import { useSearchParams } from "react-router-dom";
 import CommentsPage from "./CommentsPage";
+import LiveChat from "./LiveChat";
 
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
@@ -12,8 +13,9 @@ const WatchPage = () => {
     dispatch(closeMenu());
   }, []);
   return (
-    <div className="flex-row">
-    <div className="md:rounded-lg md:px-5 ">
+    <div className="flex-row w-full">
+    <div className="flex gap-5 md:rounded-lg md:px-5 ">
+    <div>
       <iframe
         width="770"
         height="433"
@@ -23,6 +25,11 @@ const WatchPage = () => {
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
       ></iframe>
+      </div>
+
+      <div className="w-full">
+      <LiveChat />
+      </div>
     </div>
     <div className="md:p-4">
     <CommentsPage />

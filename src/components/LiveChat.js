@@ -2,7 +2,7 @@ import React from 'react'
 
 const LiveChat = () => {
   return (
-    <div>LiveChat</div>
+    <div className='w-full h-[433px] p-1 rounded border border-black'>LiveChat</div>
   )
 }
 
