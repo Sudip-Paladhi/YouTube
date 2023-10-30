@@ -4,13 +4,13 @@ const Sidebar = () => {
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
 
   return !isMenuOpen ? (
-    <div className="md:w-1/12 md:bg-fixed">
-      <ul className="md:p-5 ">
-        <li className="flex flex-wrap bg-gray-100 rounded-lg">
+    <div className="md:w-[768px] md:bg-fixed">
+      <ul className="md:p-5">
+        <li className="py-5 bg-gray-100 rounded-lg  font-thin">
           <img
             src="https://e7.pngegg.com/pngimages/703/597/png-clipart-logo-house-home-house-angle-building.png"
             alt="home logo"
-            className="md:h-7 md:ml-3"
+            className="md:h-6"
           />{" "}
           Home
         </li>
