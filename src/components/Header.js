@@ -40,27 +40,27 @@ const Header = () => {
   };
   return (
     <div
-      className="flex flex-col md:h-18 bg-white  
+      className="flex flex-col md:h-14 bg-white  
     sticky top-0 z-50  
     "
     >
       <div className="flex ">
-        <div className="flex md:p-4 md:ml-3 md:w-2/12 gap-6">
+        <div className="flex md:p-3 md:ml-3 md:w-2/12 gap-6">
           <img
             onClick={() => toogleMenuHandler()}
             src="https://cdn.iconscout.com/icon/free/png-256/free-hamburger-menu-462145.png?f=webp"
             alt="Menu"
-            className="md:h-10 cursor-pointer"
+            className="md:h-7 cursor-pointer"
           />
           <img
             src="https://vectorseek.com/wp-content/uploads/2021/01/YouTube-Logo-Vector.png"
             alt="logo"
-            className="md:h-6 md:mt-2 "
+            className="md:h-5 md:mt-2 "
           />
         </div>
 
-        <div className="md:w-6/12 md:ml-12 md:mt-2 md:h-6">
-          <div className="">
+        <div className="md:w-6/12 md:ml-32 md:mt-2">
+          <div className="flex">
             <input
               type="text"
               value={searchQuery}
@@ -68,13 +68,13 @@ const Header = () => {
               onFocus={() => setShowSuggestion(true)}
               onBlur={() => setShowSuggestion(false)}
               placeholder="Search"
-              className="md:w-[35rem] md:py-3 border border-gray-400 rounded-l-full md:pl-4 text-gray-600"
+              className="md:w-[34rem] md:py-2 border border-gray-400 rounded-l-full md:pl-4 text-gray-600"
             />
-            <button className="md:py-3 border border-gray-400 rounded-r-full text-center">
+            <button className="md:py-2 border border-gray-400 rounded-r-full text-center bg-slate-50">
               <img
                 src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/search-512.png"
                 alt="search icon"
-                className="md:h-6 md:mx-6 "
+                className="md:h-5 md:mx-6 "
               />
             </button>
           </div>
@@ -90,15 +90,15 @@ const Header = () => {
             </div>
           )}
         </div>
-        <div className="md:w-2/12 md:mt-4">
+        <div className="md:w-2/12 md:mt-2 md:ml-5">
           <img
             src="https://static.thenounproject.com/png/4779497-200.png"
             alt="Search with voice"
-            className="md:h-8 rounded-full p-1 md:bg-slate-100"
+            className="md:h-10 rounded-full p-3 md:bg-slate-100"
           />
           <div></div>
         </div>
-        <div className="flex md:mt-4 md:h-8 md:w-2/12 md:mr-4 md:justify-around">
+        <div className="flex md:mt-4 md:h-6 md:w-2/12 md:justify-end md:gap-5  md:mr-6">
           <img
             src="https://creazilla-store.fra1.digitaloceanspaces.com/icons/3231887/video-add-icon-sm.png"
             alt="video create"
