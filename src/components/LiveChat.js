@@ -4,7 +4,7 @@ import ChatMessage from './ChatMessage'
 const LiveChat = () => {
   return (
     <div className='w-full h-[433px] p-1 rounded border border-black'>
-    <ChatMessage />
+    <ChatMessage name="Sudip paladhi" message="welcome" />
     </div>
   )
 }
