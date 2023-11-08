@@ -18,3 +18,5 @@ closeMenu: (state) => {
 
 export const { toogleMenu, closeMenu } = appSlice.actions;
 export default appSlice.reducer;
+
+
